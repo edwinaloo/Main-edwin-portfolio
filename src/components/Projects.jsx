@@ -32,6 +32,17 @@ const projects = [
     code: 'https://github.com/BabaMboga/project-adventour',
     live: 'https://project-adventour.vercel.app',
   },
+  {
+    number: '04',
+    title: 'Invoice App',
+    description:
+      'Full-stack invoicing platform — built a Flask REST API with PostgreSQL and SQLAlchemy, implemented client and invoice CRUD with status tracking (draft → sent → paid), PDF export via ReportLab, and a TypeScript React frontend with a KPI dashboard.',
+    tech: ['React', 'TypeScript', 'Flask', 'PostgreSQL', 'SQLAlchemy', 'Tailwind CSS'],
+    gradient: 'linear-gradient(135deg, #0a1628, #1a3a5c, #1e6091)',
+    label: 'invoice-app-pi-six.vercel.app',
+    code: 'https://github.com/edwinaloo/Invoice-App',
+    live: 'https://invoice-app-pi-six.vercel.app/login',
+  },
 ];
 
 function Projects() {
