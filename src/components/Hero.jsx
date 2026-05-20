@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const roles = ['Full-Stack Developer', 'React Developer', 'Flask Developer'];
+const roles = ['Full-Stack Engineer', 'React & TypeScript Developer', 'Flask API Builder'];
 
 function GitHubIcon() {
   return (
@@ -58,7 +58,7 @@ function Hero() {
     <section id="home">
       <div className="hero-inner">
         <div className="hero-left">
-          <p className="hero-greeting">Welcome to my world</p>
+          <p className="hero-greeting">Based in Kenya &middot; Available for work</p>
           <h1 className="hero-name">Hi, I'm Edwin Aloo</h1>
 
           <div className="hero-role-wrap">
@@ -68,9 +68,11 @@ function Hero() {
           </div>
 
           <p className="hero-bio">
-            I build full-stack web applications with React and Flask — from
-            database schema to deployed product. I handle auth, design REST
-            APIs, and push to production. I write code that works and ships.
+            I engineer full-stack web applications end-to-end — React and TypeScript
+            on the frontend, Flask and PostgreSQL on the backend. I've shipped live
+            products for real clients, built production REST APIs with JWT auth, and
+            competed in hackathons solving real-world problems. I own every layer
+            from database schema to deployment.
           </p>
 
           <div className="hero-socials">
@@ -95,7 +97,7 @@ function Hero() {
           </div>
 
           <div className="hero-cta">
-            <a href="/resume.pdf" download className="btn-primary">
+            <a href="/resume.html" target="_blank" rel="noopener noreferrer" className="btn-primary">
               Download CV
             </a>
             <a href="#contact" className="btn-secondary">

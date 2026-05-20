@@ -2,43 +2,24 @@ import { useEffect, useRef } from 'react';
 
 const categories = [
   {
+    title: 'Languages',
+    skills: ['JavaScript (ES6+)', 'TypeScript', 'Python 3', 'C++', 'HTML5', 'CSS3'],
+  },
+  {
     title: 'Frontend',
-    skills: [
-      { name: 'React', level: 90 },
-      { name: 'JavaScript (ES6+)', level: 88 },
-      { name: 'HTML5 & CSS3', level: 92 },
-      { name: 'React Router', level: 85 },
-      { name: 'Responsive Design', level: 88 },
-    ],
+    skills: ['React', 'React Router', 'Tailwind CSS', 'Vite', 'Responsive Design'],
   },
   {
     title: 'Backend',
-    skills: [
-      { name: 'Python', level: 85 },
-      { name: 'Flask', level: 82 },
-      { name: 'REST API Design', level: 86 },
-      { name: 'JWT Authentication', level: 80 },
-      { name: 'SQLAlchemy ORM', level: 78 },
-    ],
+    skills: ['Flask', 'REST API Design', 'JWT Authentication', 'SQLAlchemy ORM', 'CORS & Middleware'],
   },
   {
     title: 'Database',
-    skills: [
-      { name: 'PostgreSQL', level: 80 },
-      { name: 'MySQL', level: 75 },
-      { name: 'SQLite', level: 83 },
-      { name: 'Schema Design', level: 79 },
-    ],
+    skills: ['PostgreSQL', 'MySQL', 'SQLite', 'Schema Design', 'Alembic Migrations'],
   },
   {
-    title: 'Tools',
-    skills: [
-      { name: 'Git & GitHub', level: 89 },
-      { name: 'Vercel', level: 85 },
-      { name: 'VS Code', level: 92 },
-      { name: 'Postman', level: 82 },
-      { name: 'npm / pip', level: 87 },
-    ],
+    title: 'Tools & Platforms',
+    skills: ['Git & GitHub', 'Vercel', 'Postman', 'VS Code', 'npm / pip'],
   },
 ];
 
@@ -53,14 +34,14 @@ function Skills() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            section.querySelectorAll('.skill-bar-fill').forEach((bar) => {
-              bar.style.width = bar.dataset.width;
+            section.querySelectorAll('.skill-tag').forEach((tag, i) => {
+              setTimeout(() => tag.classList.add('skill-tag--visible'), i * 40);
             });
             observer.unobserve(section);
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.1 }
     );
 
     observer.observe(section);
@@ -73,7 +54,7 @@ function Skills() {
         <p className="section-label">/ skills</p>
         <h2 className="section-heading">What I Work With</h2>
         <p className="section-subheading">
-          Technologies and tools I've used to build and ship real products.
+          Technologies and tools I use to build and ship real products.
         </p>
       </div>
 
@@ -81,20 +62,11 @@ function Skills() {
         {categories.map((cat) => (
           <div key={cat.title} className="skill-category">
             <div className="skill-category-title">{cat.title}</div>
-            {cat.skills.map((skill) => (
-              <div key={skill.name} className="skill-item">
-                <div className="skill-item-header">
-                  <span className="skill-item-name">{skill.name}</span>
-                  <span className="skill-item-pct">{skill.level}%</span>
-                </div>
-                <div className="skill-bar-bg">
-                  <div
-                    className="skill-bar-fill"
-                    data-width={`${skill.level}%`}
-                  />
-                </div>
-              </div>
-            ))}
+            <div className="skill-tags">
+              {cat.skills.map((skill) => (
+                <span key={skill} className="skill-tag">{skill}</span>
+              ))}
+            </div>
           </div>
         ))}
       </div>

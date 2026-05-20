@@ -9,23 +9,24 @@ function About() {
       <div className="about-inner">
         <div className="about-left">
           <p className="about-text">
-            I'm a full-stack developer based in Kenya, focused on building web
-            applications that are fast, clean, and actually shipped. My stack is
-            React on the frontend and Flask on the backend — I've built live
-            client sites, implemented JWT authentication, designed relational
-            databases, and deployed to production.
+            I'm a full-stack software engineer based in Kenya. I build production
+            web applications — React and TypeScript frontends, Flask REST APIs,
+            PostgreSQL databases. My work spans client sites shipped to real users,
+            hackathon projects tackling real-world problems across Africa, and
+            full-stack SaaS tools with auth, PDF generation, and KPI dashboards.
           </p>
           <p className="about-text">
-            I care about writing code that's maintainable and that solves real
-            problems. I take a project from idea to deployed product and stay
-            hands-on at every layer of the stack. Currently open to full-time
-            roles and freelance work.
+            I take ownership of the entire stack — from schema design and API
+            architecture to frontend state management and deployment. Whether it's
+            a corporate platform, an invoicing system, or an SMS-integrated
+            backend, I get it shipped. Open to full-time roles and freelance
+            contracts.
           </p>
 
           <div className="about-details">
             <div className="about-detail-row">
               <span className="about-detail-label">Stack</span>
-              <span>React · Flask · PostgreSQL</span>
+              <span>React · TypeScript · Flask · PostgreSQL</span>
             </div>
             <div className="about-detail-row">
               <span className="about-detail-label">Based in</span>
@@ -49,20 +50,20 @@ function About() {
 
         <div className="about-right">
           <div className="about-stat-card">
-            <div className="about-stat-number">5+</div>
-            <div className="about-stat-label">Projects Built</div>
+            <div className="about-stat-number">20+</div>
+            <div className="about-stat-label">Projects Shipped</div>
           </div>
           <div className="about-stat-card">
             <div className="about-stat-number">2+</div>
-            <div className="about-stat-label">Years Coding</div>
+            <div className="about-stat-label">Years Building</div>
           </div>
           <div className="about-stat-card">
-            <div className="about-stat-number">3</div>
+            <div className="about-stat-number">4</div>
             <div className="about-stat-label">Live Sites</div>
           </div>
           <div className="about-stat-card">
-            <div className="about-stat-number">∞</div>
-            <div className="about-stat-label">Problems Solved</div>
+            <div className="about-stat-number">2</div>
+            <div className="about-stat-label">Real Clients</div>
           </div>
         </div>
       </div>

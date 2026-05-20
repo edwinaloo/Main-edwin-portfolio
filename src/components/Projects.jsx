@@ -6,6 +6,7 @@ const projects = [
       'Live client site — built a component-based React frontend, structured the routing and layout architecture, and deployed to a custom domain. Fully responsive across all breakpoints.',
     tech: ['React', 'JavaScript', 'CSS', 'Custom Domain'],
     gradient: 'linear-gradient(135deg, #0f2027, #203a43, #2c5364)',
+    image: '/images/projects/sokwe-b.png',
     label: 'sokwe-b.com',
     code: 'https://github.com/sokwe42/sokwe-b',
     live: 'https://sokwe-b.com',
@@ -17,6 +18,7 @@ const projects = [
       'Corporate site for a real business — structured multi-section layout, clean component hierarchy, and production deployment on Vercel with performance-optimised asset loading.',
     tech: ['React', 'JavaScript', 'CSS', 'Vercel'],
     gradient: 'linear-gradient(135deg, #0d1b2a, #1b4332, #2d6a4f)',
+    image: '/images/projects/oakwire.png',
     label: 'oakwire-limited.vercel.app',
     code: 'https://github.com/edwinaloo/oakwire-limited',
     live: 'https://oakwire-limited.vercel.app',
@@ -28,6 +30,7 @@ const projects = [
       'Full-stack tourism platform — designed the REST API with Flask, modelled relational data with SQLAlchemy, implemented JWT-based auth, and built the React frontend with protected routes.',
     tech: ['React', 'Flask', 'SQLAlchemy', 'JWT', 'REST API'],
     gradient: 'linear-gradient(135deg, #1a0533, #3d0066, #6a0dad)',
+    image: '/images/projects/adventour.png',
     label: 'project-adventour.vercel.app',
     code: 'https://github.com/BabaMboga/project-adventour',
     live: 'https://project-adventour.vercel.app',
@@ -39,6 +42,7 @@ const projects = [
       'Full-stack invoicing platform — built a Flask REST API with PostgreSQL and SQLAlchemy, implemented client and invoice CRUD with status tracking (draft → sent → paid), PDF export via ReportLab, and a TypeScript React frontend with a KPI dashboard.',
     tech: ['React', 'TypeScript', 'Flask', 'PostgreSQL', 'SQLAlchemy', 'Tailwind CSS'],
     gradient: 'linear-gradient(135deg, #0a1628, #1a3a5c, #1e6091)',
+    image: '/images/projects/invoice.png',
     label: 'invoice-app-pi-six.vercel.app',
     code: 'https://github.com/edwinaloo/Invoice-App',
     live: 'https://invoice-app-pi-six.vercel.app/login',
@@ -60,10 +64,18 @@ function Projects() {
         {projects.map((project) => (
           <div key={project.number} className="project-card">
             <div className="project-img">
-              <div
-                className="project-img-gradient"
-                style={{ background: project.gradient }}
-              />
+              {project.image ? (
+                <img
+                  className="project-img-screenshot"
+                  src={project.image}
+                  alt={project.title}
+                />
+              ) : (
+                <div
+                  className="project-img-gradient"
+                  style={{ background: project.gradient }}
+                />
+              )}
               <span className="project-img-label">{project.label}</span>
               <div className="project-img-links">
                 <a

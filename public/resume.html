@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edwin Aloo — Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 10pt;
+      color: #1a1a2e;
+      background: #fff;
+      line-height: 1.5;
+    }
+
+    a { color: #3b4cca; text-decoration: none; }
+
+    /* ── PAGE LAYOUT ── */
+    .page {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2.5rem 2.5rem 2rem;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2.5px solid #3b4cca;
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      gap: 2rem;
+    }
+
+    .header-left h1 {
+      font-size: 26pt;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #0f0f23;
+    }
+
+    .header-left .title {
+      font-size: 11pt;
+      font-weight: 500;
+      color: #3b4cca;
+      margin-top: 0.2rem;
+      letter-spacing: 0.01em;
+    }
+
+    .header-right {
+      text-align: right;
+      font-size: 8.5pt;
+      color: #555;
+      line-height: 1.8;
+      flex-shrink: 0;
+    }
+
+    .header-right a { color: #3b4cca; }
+
+    /* ── TWO COLUMN ── */
+    .body {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2rem;
+    }
+
+    /* ── SECTION ── */
+    .section { margin-bottom: 1.5rem; }
+
+    .section-title {
+      font-size: 7.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #3b4cca;
+      border-bottom: 1px solid #d0d5f7;
+      padding-bottom: 0.3rem;
+      margin-bottom: 0.75rem;
+    }
+
+    /* ── SKILLS ── */
+    .skill-group { margin-bottom: 0.9rem; }
+
+    .skill-group-title {
+      font-size: 8pt;
+      font-weight: 600;
+      color: #0f0f23;
+      margin-bottom: 0.3rem;
+    }
+
+    .skill-list {
+      font-size: 8.5pt;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-item { margin-bottom: 0.9rem; }
+
+    .edu-school {
+      font-size: 9pt;
+      font-weight: 600;
+      color: #0f0f23;
+    }
+
+    .edu-degree {
+      font-size: 8.5pt;
+      color: #444;
+    }
+
+    .edu-date {
+      font-size: 8pt;
+      color: #888;
+    }
+
+    /* ── EXPERIENCE / PROJECTS ── */
+    .exp-item {
+      margin-bottom: 1.2rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid #eef0f8;
+    }
+
+    .exp-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.15rem;
+    }
+
+    .exp-title {
+      font-size: 10pt;
+      font-weight: 700;
+      color: #0f0f23;
+    }
+
+    .exp-badge {
+      font-size: 7pt;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #fff;
+      background: #3b4cca;
+      border-radius: 3px;
+      padding: 1px 6px;
+      flex-shrink: 0;
+    }
+
+    .exp-sub {
+      font-size: 8.5pt;
+      color: #3b4cca;
+      margin-bottom: 0.4rem;
+    }
+
+    .exp-bullets {
+      list-style: none;
+      padding: 0;
+    }
+
+    .exp-bullets li {
+      font-size: 8.5pt;
+      color: #444;
+      padding-left: 0.9rem;
+      position: relative;
+      margin-bottom: 0.2rem;
+      line-height: 1.5;
+    }
+
+    .exp-bullets li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: #3b4cca;
+      font-size: 7pt;
+      top: 1px;
+    }
+
+    .exp-tech {
+      margin-top: 0.4rem;
+      font-size: 7.5pt;
+      color: #888;
+    }
+
+    .exp-tech strong { color: #555; font-weight: 600; }
+
+    /* ── PROFILE SUMMARY ── */
+    .profile-text {
+      font-size: 9pt;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      body { font-size: 9.5pt; }
+      .page { padding: 1.5rem; max-width: 100%; }
+      @page { margin: 1cm; size: A4; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- HEADER -->
+    <div class="header">
+      <div class="header-left">
+        <h1>Edwin Aloo</h1>
+        <div class="title">Full-Stack Software Engineer · React &amp; Flask</div>
+      </div>
+      <div class="header-right">
+        <div>📍 Nairobi, Kenya</div>
+        <div>📞 +254 111 770 495</div>
+        <div>✉ <a href="mailto:alooedwin94@gmail.com">alooedwin94@gmail.com</a></div>
+        <div>🔗 <a href="https://github.com/edwinaloo">github.com/edwinaloo</a></div>
+        <div>🔗 <a href="https://www.linkedin.com/in/edwinaloo/">linkedin.com/in/edwinaloo</a></div>
+        <div>🌐 <a href="https://main-edwin-portfolio.vercel.app">Portfolio</a></div>
+      </div>
+    </div>
+
+    <!-- BODY -->
+    <div class="body">
+
+      <!-- LEFT COLUMN -->
+      <div class="left">
+
+        <!-- SKILLS -->
+        <div class="section">
+          <div class="section-title">Technical Skills</div>
+
+          <div class="skill-group">
+            <div class="skill-group-title">Languages</div>
+            <div class="skill-list">JavaScript (ES6+), TypeScript, Python 3, C++, HTML5, CSS3</div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-title">Frontend</div>
+            <div class="skill-list">React, React Router, Tailwind CSS, Vite, Responsive Design</div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-title">Backend</div>
+            <div class="skill-list">Flask, REST API Design, JWT Authentication, SQLAlchemy ORM</div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-title">Database</div>
+            <div class="skill-list">PostgreSQL, MySQL, SQLite, Schema Design, Alembic Migrations</div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-title">Tools</div>
+            <div class="skill-list">Git, GitHub, Vercel, Postman, VS Code, npm, pip</div>
+          </div>
+        </div>
+
+        <!-- EDUCATION -->
+        <div class="section">
+          <div class="section-title">Education</div>
+
+          <div class="edu-item">
+            <div class="edu-school">Moringa School</div>
+            <div class="edu-degree">Certificate of Software Engineering</div>
+            <div class="edu-date">2022 – 2023</div>
+          </div>
+
+          <div class="edu-item">
+            <div class="edu-school">Maasai Boys High School</div>
+            <div class="edu-degree">Kenya Certificate of Secondary Education</div>
+            <div class="edu-date">2019 – 2022</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="right">
+
+        <!-- PROFILE -->
+        <div class="section">
+          <div class="section-title">Profile</div>
+          <p class="profile-text">
+            Full-stack software engineer with 2+ years of experience building and
+            shipping production web applications. Proficient in React and TypeScript
+            on the frontend, Flask and PostgreSQL on the backend. Track record of
+            delivering live client projects end-to-end — from database schema design
+            to Vercel deployment. Strong analytical skills with experience in REST
+            API design, JWT authentication, and relational data modelling.
+          </p>
+        </div>
+
+        <!-- PROJECTS / EXPERIENCE -->
+        <div class="section">
+          <div class="section-title">Projects &amp; Experience</div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <div class="exp-title">Sokwe-B — E-Learning Platform</div>
+              <div class="exp-badge">Live Client</div>
+            </div>
+            <div class="exp-sub">sokwe-b.com</div>
+            <ul class="exp-bullets">
+              <li>Engineered a component-based React frontend for a live e-learning platform serving active users in Kenya</li>
+              <li>Structured routing and multi-page layout architecture; deployed to a custom domain</li>
+              <li>Delivered a fully responsive interface across all breakpoints</li>
+            </ul>
+            <div class="exp-tech"><strong>Stack:</strong> React, JavaScript, CSS3, Custom Domain</div>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <div class="exp-title">Oakwire Limited — Corporate Website</div>
+              <div class="exp-badge">Live Client</div>
+            </div>
+            <div class="exp-sub">oakwire-limited.vercel.app</div>
+            <ul class="exp-bullets">
+              <li>Built a multi-section corporate site for a real estate valuation business from scratch</li>
+              <li>Designed clean component hierarchy with performance-optimised asset loading on Vercel</li>
+              <li>Site actively used by the client to acquire new customers</li>
+            </ul>
+            <div class="exp-tech"><strong>Stack:</strong> React, JavaScript, CSS3, Vercel</div>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <div class="exp-title">Invoice App — Full-Stack SaaS Tool</div>
+              <div class="exp-badge">Personal Project</div>
+            </div>
+            <div class="exp-sub">invoice-app-pi-six.vercel.app</div>
+            <ul class="exp-bullets">
+              <li>Built a Flask REST API with PostgreSQL — client and invoice CRUD, status workflow (draft → sent → paid), and PDF export via ReportLab</li>
+              <li>Developed a TypeScript React frontend with a KPI dashboard and revenue chart</li>
+              <li>Implemented JWT-based authentication with protected routes</li>
+            </ul>
+            <div class="exp-tech"><strong>Stack:</strong> React, TypeScript, Flask, PostgreSQL, SQLAlchemy, Tailwind CSS, ReportLab</div>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <div class="exp-title">Adventour — Tourism Platform</div>
+              <div class="exp-badge">Team Project</div>
+            </div>
+            <div class="exp-sub">project-adventour.vercel.app</div>
+            <ul class="exp-bullets">
+              <li>Designed a REST API with Flask, modelled relational data with SQLAlchemy, and implemented JWT authentication</li>
+              <li>Built the React frontend with protected routes and a destination search interface</li>
+            </ul>
+            <div class="exp-tech"><strong>Stack:</strong> React, Flask, SQLAlchemy, JWT, REST API</div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>
