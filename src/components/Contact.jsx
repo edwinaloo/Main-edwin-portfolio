@@ -1,6 +1,4 @@
-import { useState } from 'react';
-
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+import { useForm, ValidationError } from '@formspree/react';
 
 function EmailIcon() {
   return (
@@ -28,31 +26,7 @@ function LinkedInIcon() {
 }
 
 function Contact() {
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
-  const [status, setStatus] = useState('idle');
-
-  const handleChange = (e) =>
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus('sending');
-    try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(form),
-      });
-      if (res.ok) {
-        setStatus('sent');
-        setForm({ name: '', email: '', message: '' });
-      } else {
-        setStatus('error');
-      }
-    } catch {
-      setStatus('error');
-    }
-  };
+  const [state, handleSubmit] = useForm('mdajlzwg');
 
   return (
     <section id="contact">
@@ -87,67 +61,63 @@ function Contact() {
           </a>
         </div>
 
-        <form className="contact-form" onSubmit={handleSubmit} noValidate>
-          <div className="contact-form-row">
-            <div className="contact-form-field">
-              <label htmlFor="cf-name">Name</label>
-              <input
-                id="cf-name"
-                name="name"
-                type="text"
-                placeholder="Your name"
-                value={form.name}
-                onChange={handleChange}
-                required
-                disabled={status === 'sending' || status === 'sent'}
-              />
+        {state.succeeded ? (
+          <div className="contact-success">
+            <p>Thanks for reaching out! I'll get back to you soon.</p>
+          </div>
+        ) : (
+          <form className="contact-form" onSubmit={handleSubmit}>
+            <div className="contact-form-row">
+              <div className="contact-form-field">
+                <label htmlFor="cf-name">Name</label>
+                <input
+                  id="cf-name"
+                  name="name"
+                  type="text"
+                  placeholder="Your name"
+                  required
+                  disabled={state.submitting}
+                />
+                <ValidationError field="name" errors={state.errors} />
+              </div>
+              <div className="contact-form-field">
+                <label htmlFor="cf-email">Email</label>
+                <input
+                  id="cf-email"
+                  name="email"
+                  type="email"
+                  placeholder="your@email.com"
+                  required
+                  disabled={state.submitting}
+                />
+                <ValidationError field="email" errors={state.errors} />
+              </div>
             </div>
+
             <div className="contact-form-field">
-              <label htmlFor="cf-email">Email</label>
-              <input
-                id="cf-email"
-                name="email"
-                type="email"
-                placeholder="your@email.com"
-                value={form.email}
-                onChange={handleChange}
+              <label htmlFor="cf-message">Message</label>
+              <textarea
+                id="cf-message"
+                name="message"
+                placeholder="Tell me about your project or role..."
+                rows={5}
                 required
-                disabled={status === 'sending' || status === 'sent'}
+                disabled={state.submitting}
               />
+              <ValidationError field="message" errors={state.errors} />
             </div>
-          </div>
 
-          <div className="contact-form-field">
-            <label htmlFor="cf-message">Message</label>
-            <textarea
-              id="cf-message"
-              name="message"
-              placeholder="Tell me about your project or role..."
-              rows={5}
-              value={form.message}
-              onChange={handleChange}
-              required
-              disabled={status === 'sending' || status === 'sent'}
-            />
-          </div>
-
-          <div className="contact-form-footer">
-            <button
-              type="submit"
-              className="btn-primary"
-              disabled={status === 'sending' || status === 'sent'}
-            >
-              {status === 'sending' && 'Sending…'}
-              {status === 'sent' && 'Message Sent ✓'}
-              {(status === 'idle' || status === 'error') && 'Send Message'}
-            </button>
-            {status === 'error' && (
-              <p className="contact-form-error">
-                Something went wrong — please email me directly at alooedwin94@gmail.com
-              </p>
-            )}
-          </div>
-        </form>
+            <div className="contact-form-footer">
+              <button
+                type="submit"
+                className="btn-primary"
+                disabled={state.submitting}
+              >
+                {state.submitting ? 'Sending…' : 'Send Message'}
+              </button>
+            </div>
+          </form>
+        )}
       </div>
     </section>
   );

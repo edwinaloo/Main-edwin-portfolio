@@ -348,8 +348,8 @@ section {
 
 .hero-avatar-wrap {
   position: relative;
-  width: 320px;
-  height: 320px;
+  width: 420px;
+  height: 420px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -372,8 +372,8 @@ section {
 }
 
 .hero-avatar-circle {
-  width: 220px;
-  height: 220px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   background: linear-gradient(145deg, var(--card-color), var(--card-color-2));
   box-shadow: var(--shadow-one);
@@ -977,6 +977,23 @@ section {
 .contact-form-error {
   font-size: 0.8rem;
   color: #f87171;
+}
+
+[data-fs-error],
+.formspree-errors {
+  font-size: 0.8rem;
+  color: #f87171;
+  margin-top: 0.25rem;
+}
+
+.contact-success {
+  font-size: 1rem;
+  color: var(--design-color);
+  padding: 1.5rem;
+  border-radius: 8px;
+  background: rgba(1, 213, 255, 0.05);
+  border: 1px solid rgba(1, 213, 255, 0.1);
+  text-align: center;
 }
 
 /* ── FOOTER ──────────────────────────────────────────────── */
