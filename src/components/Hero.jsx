@@ -111,7 +111,7 @@ function Hero() {
             <div className="hero-avatar-ring-outer" />
             <div className="hero-avatar-ring-inner" />
             <div className="hero-avatar-circle">
-              <span className="hero-avatar-initials">EA</span>
+              <img src="/images/Edwin.png" alt="Edwin Aloo" className="hero-avatar-image" />
             </div>
             <div className="hero-avatar-dot-top" />
             <div className="hero-avatar-dot-bottom" />
